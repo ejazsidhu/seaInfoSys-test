@@ -13,6 +13,7 @@ import { TopBarComponent } from './private/layout/top-bar/top-bar.component';
 import { FooterComponent } from './private/layout/footer/footer.component';
 import { ContentComponent } from './private/layout/content/content.component';
 import { HomeComponent } from './private/home/home.component';
+import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './private/home/home.component';
     TopBarComponent,
     FooterComponent,
     ContentComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
