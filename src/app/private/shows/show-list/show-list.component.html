@@ -1,3 +1,12 @@
-<p>
-  show-list works!
+<p *ngIf="loading">
+  loading data... <i [ngClass]="{'fa fa-spinner fa-spin':loading}" ></i>
 </p>
+<div class="row">
+  <div class="col-md-2" *ngFor="let show of showsList" >
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <img src="{{show._embedded.show.image}}" alt="" srcset=""> -->
+      </div>
+    </div>
+  </div>
+</div>

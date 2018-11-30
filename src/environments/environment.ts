@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ip:'http://api.tvmaze.com'
+  ip:'http://api.tvmaze.com/'
 };
 
 /*

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-show-list',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowListComponent implements OnInit {
 
-  constructor() { }
+  showsList: any = [];
+  loading=false;
+
+  constructor(private generalService: GeneralService) { }
 
   ngOnInit() {
+    this.loading=true
+    this.getData();
   }
+
+
+  getData() {
+    this.generalService.getAllShows().subscribe(data => {
+
+      this.showsList = data;
+      console.log(this.showsList[0]._embedded.show)
+      this.loading=false;
+
+    }, error => { error })
+  }
+
+
+
+
+
 
 }
