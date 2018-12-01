@@ -7,15 +7,24 @@
 </div>
 
 
-<ng-template #data class="text-center">
+<ng-template #data>
+
+  <div class="input-group mt-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input class="form-control" type="text" name="search" placeholder="search show here..." [(ngModel)]="filter">
+
+  </div>
 
   <pagination-controls class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
 
 
+
   <div class="row text-center mt-5" *ngIf="showsList.length>0">
 
-    <div class="col-md-2 mt-4 " *ngFor="let sh of showsList | paginate: { itemsPerPage: 12, currentPage: p }" routerLink="/home/detail/{{sh._embedded.show.id}}"
-      style="cursor:pointer">
+    <div class="col-md-2 mt-4 " *ngFor="let sh of showsList|filter:filter | paginate: { itemsPerPage: 12, currentPage: p }"
+      routerLink="/home/detail/{{sh._embedded.show.id}}" style="cursor:pointer">
 
       <div class="card">
         <img class="card-img-top" *ngIf="sh._embedded.show.image.medium;else noImage" src="{{sh._embedded.show.image.medium}}"
@@ -24,8 +33,8 @@
           <img src="assets/images/inf.png" alt="image not found">
         </ng-template>
         <div class="card-body" style="height:100px !important;">
-          <p class="card-title" >
-           <b>{{sh._embedded.show.name}}</b> 
+          <p class="card-title">
+            <b>{{sh._embedded.show.name}}</b>
           </p>
           <!-- <p class="card-text">Show Type:{{sh._embedded.show.type}}</p> -->
           <!-- <a href="{{sh.url}}" class="btn btn-primary">Go</a> -->

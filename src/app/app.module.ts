@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './public/page-not-found/page-not-found.co
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule, } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NgxPaginationModule, } from 'ngx-pagination';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
