@@ -30,6 +30,12 @@ export class GeneralService {
 
   }
 
+  public getPersonById(Id:number) {
+    var url = this.urlBuilder('people/'+Id);
+     return this.http.get(url).map((response: Response) => response.json());
+
+  }
+
   public searchPeople(string:any){
     var url = this.urlBuilder('search/people?q='+string);   
      return this.http.get(url).map((response: Response) => response.json());

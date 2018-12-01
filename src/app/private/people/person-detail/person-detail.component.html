@@ -1,3 +1,24 @@
-<p>
-  person-detail works!
-</p>
+<div class="row mt-2">
+  <div class="col-md-7">
+
+    <div class="card text-left" *ngIf="person.name">
+      <img class="card-img-top" src="{{person.image.medium}}" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Name:{{person.name}}</h4>
+        <p class="card-text">Country:{{person.country.name}}</p>
+        <p class="card-text">DOB:{{person.birthday}}</p>
+
+      </div>
+    </div>
+    <!-- <div class="row" *ngIf="person.image">
+      <div class="col-md-4">
+        <div class="card text-left">
+          <img class="card-img-top" src="" alt="">
+        </div>
+
+      </div>
+
+    </div> -->
+
+  </div>
+</div>
