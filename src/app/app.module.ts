@@ -16,8 +16,12 @@ import { HomeComponent } from './private/home/home.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgxPaginationModule, } from 'ngx-pagination';
+import { NgxPaginationModule, } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PeopleComponent } from './private/people/people.component';
+import { PeopleListComponent } from './private/people/people-list/people-list.component';
+import { PersonDetailComponent } from './private/people/person-detail/person-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FooterComponent,
     ContentComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PeopleComponent,
+    PeopleListComponent,
+    PersonDetailComponent
   ],
   imports: [
     BrowserModule,
