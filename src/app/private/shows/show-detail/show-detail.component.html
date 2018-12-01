@@ -2,6 +2,12 @@
 
 </div>
 <div class="row">
+  <div *ngIf="message.length>0" class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" (click)="message=''" aria-hidden="true">&times;</button>
+    <strong>{{message}}</strong>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-7">
     <div class="row" *ngIf="show.image">
       <div class="col-md-4">
@@ -45,7 +51,7 @@
             <th>Genres</th>
             <td *ngFor="let g of show.genres">{{g}}</td>
           </tr>
-         
+
         </table>
 
       </div>

@@ -12,6 +12,7 @@ export class ShowListComponent implements OnInit {
   loading=false;
   p: number = 1;
   filter='';
+  message='';
 
   constructor(private generalService: GeneralService) { }
 
@@ -28,7 +29,9 @@ export class ShowListComponent implements OnInit {
       console.log(this.showsList[0]._embedded.show.image.medium)
       this.loading=false;
 
-    }, error => { error })
+    }, error => { 
+      this.message=error.message;
+     })
   }
 
 

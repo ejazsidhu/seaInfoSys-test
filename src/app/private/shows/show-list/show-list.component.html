@@ -6,8 +6,16 @@
   </div>
 </div>
 
+<div class="row">
+  <div *ngIf="message.length>0" class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" (click)="message=''" aria-hidden="true">&times;</button>
+    <strong>{{message}}</strong>
+  </div>
+</div>
+
 
 <ng-template #data>
+
 
   <div class="input-group mt-1">
     <div class="input-group-prepend">
