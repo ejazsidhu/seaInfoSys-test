@@ -7,28 +7,31 @@
 </div>
 
 
-<ng-template #data>
-  
-    <div class="row text-center mt-4 ml-1" *ngIf="showsList.length>0">
-      <div class="col-md-3 mt-4 " *ngFor="let sh of showsList" routerLink="/home/detail/{{sh._embedded.show.id}}" style="cursor:pointer">
+<ng-template #data class="text-center">
 
-          <div class="card" >
-              <img class="card-img-top" *ngIf="sh._embedded.show.image.medium;else noImage" src="{{sh._embedded.show.image.medium}}" alt="Card image cap">
-              <ng-template #noImage>
-                  <img src="assets/images/inf.png" alt="image not found" >
-                </ng-template>
-              <div class="card-body" style="min-height:125px !important">
-                <h5 class="card-title">{{sh._embedded.show.name}}</h5>
-                <p class="card-text">Show Type:{{sh._embedded.show.type}}</p>
-                <!-- <a href="{{sh.url}}" class="btn btn-primary">Go</a> -->
-              </div>
-            </div>
+  <pagination-controls class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
 
-    
 
+  <div class="row text-center mt-5 ml-1" *ngIf="showsList.length>0">
+
+    <div class="col-md-3 mt-4 " *ngFor="let sh of showsList | paginate: { itemsPerPage: 8, currentPage: p }" routerLink="/home/detail/{{sh._embedded.show.id}}"
+      style="cursor:pointer">
+
+      <div class="card">
+        <img class="card-img-top" *ngIf="sh._embedded.show.image.medium;else noImage" src="{{sh._embedded.show.image.medium}}"
+          alt="Card image cap">
+        <ng-template #noImage>
+          <img src="assets/images/inf.png" alt="image not found">
+        </ng-template>
+        <div class="card-body" style="min-height:125px !important">
+          <h5 class="card-title">{{sh._embedded.show.name}}</h5>
+          <p class="card-text">Show Type:{{sh._embedded.show.type}}</p>
+          <!-- <a href="{{sh.url}}" class="btn btn-primary">Go</a> -->
+        </div>
       </div>
-    </div>
 
-  
+    </div>
+  </div>
+
 
 </ng-template>

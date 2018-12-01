@@ -10,6 +10,7 @@ export class ShowListComponent implements OnInit {
 
   showsList: any = [];
   loading=false;
+  p: number = 1;;
 
   constructor(private generalService: GeneralService) { }
 
