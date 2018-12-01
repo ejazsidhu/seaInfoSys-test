@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-show-detail',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowDetailComponent implements OnInit {
 
-  constructor() { }
+  public show:any={};
+  constructor(private route: ActivatedRoute, private generalService: GeneralService) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe(params => {
+      console.log(params['id']);
+      this.getShowById(params['id']);
+    })
+  }
+
+  getShowById(showId) {
+    this.generalService.getShowById(showId).subscribe(data => { 
+      console.log(data) ;
+      this.show=data;
+
+    }, error => {
+      console.log('error', error)
+    });
+
+  }
+
+  cleanParaghraf(str:string){
+    return str.replace(/<\/?[^>]+(>|$)/g, "");
   }
 
 }

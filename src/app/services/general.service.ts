@@ -23,4 +23,12 @@ export class GeneralService {
      return this.http.get(url).map((response: Response) => response.json());
 
   }
+
+  public getShowById(showId:number) {
+    var url = this.urlBuilder('shows/'+showId);
+    // let headers = new Headers({ 'Content-Type': 'application/json' });
+    // return this.http.get(url, { headers: headers }).map((response: Response) => response.json());
+     return this.http.get(url).map((response: Response) => response.json());
+
+  }
 }

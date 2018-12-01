@@ -10,7 +10,7 @@
 <ng-template #data>
   
     <div class="row text-center mt-4 ml-1" *ngIf="showsList.length>0">
-      <div class="col-md-3 mt-4 " *ngFor="let sh of showsList">
+      <div class="col-md-3 mt-4 " *ngFor="let sh of showsList" routerLink="/home/detail/{{sh._embedded.show.id}}" style="cursor:pointer">
 
           <div class="card" >
               <img class="card-img-top" *ngIf="sh._embedded.show.image.medium;else noImage" src="{{sh._embedded.show.image.medium}}" alt="Card image cap">

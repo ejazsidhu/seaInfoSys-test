@@ -1,3 +1,55 @@
-<p>
-  show-detail works!
-</p>
+<div class="row mb-4">
+
+</div>
+<div class="row">
+  <div class="col-md-7">
+    <div class="row" *ngIf="show.image">
+      <div class="col-md-4">
+        <div class="card text-left">
+          <img class="card-img-top" src="{{show.image.medium}}" alt="">
+        </div>
+      </div>
+      <div class="col-md-8">
+
+        {{cleanParaghraf(show.summary)}}
+
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-5" *ngIf="show.network">
+    <div class="card" style="width: 27rem;">
+      <div class="card-body">
+        <h5 class="card-title">Show info</h5>
+
+        <table class="c-table">
+          <tr>
+            <th>Network:</th>
+            <td style="width:100%">{{show.network.name}}</td>
+            <td style="width:100%">{{show.network.country.name}}</td>
+          </tr>
+          <tr>
+            <th>Schedule:</th>
+            <td>Time:{{show.schedule.time}}</td>
+            <td *ngFor="let sch of show.schedule.days">{{sch}}</td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td>{{show.status}}</td>
+          </tr>
+          <tr>
+            <th>Show Type</th>
+            <td>{{show.type}}</td>
+          </tr>
+          <tr>
+            <th>Genres</th>
+            <td *ngFor="let g of show.genres">{{g}}</td>
+          </tr>
+         
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
