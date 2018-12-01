@@ -23,7 +23,7 @@ export class ShowListComponent implements OnInit {
     this.generalService.getAllShows().subscribe(data => {
 
       this.showsList = data;
-      console.log(this.showsList[0]._embedded.show)
+      console.log(this.showsList[0]._embedded.show.image.medium)
       this.loading=false;
 
     }, error => { error })

@@ -1,12 +1,34 @@
-<p *ngIf="loading">
-  loading data... <i [ngClass]="{'fa fa-spinner fa-spin':loading}" ></i>
-</p>
-<div class="row">
-  <div class="col-md-2" *ngFor="let show of showsList" >
-    <div class="row">
-      <div class="col-md-12">
-        <!-- <img src="{{show._embedded.show.image}}" alt="" srcset=""> -->
-      </div>
-    </div>
+<div class="row mt-50" *ngIf="loading ;else data">
+  <div class="col-md-2 com-offset-md-4">
+    <p>
+      <i [ngClass]="{'fa fa-spinner fa-spin fa-5x':loading}"></i>
+    </p>
   </div>
 </div>
+
+
+<ng-template #data>
+  
+    <div class="row text-center mt-4 ml-1" *ngIf="showsList.length>0">
+      <div class="col-md-3 mt-4 " *ngFor="let sh of showsList">
+
+          <div class="card" >
+              <img class="card-img-top" *ngIf="sh._embedded.show.image.medium;else noImage" src="{{sh._embedded.show.image.medium}}" alt="Card image cap">
+              <ng-template #noImage>
+                  <img src="assets/images/inf.png" alt="image not found" >
+                </ng-template>
+              <div class="card-body" style="min-height:125px !important">
+                <h5 class="card-title">{{sh._embedded.show.name}}</h5>
+                <p class="card-text">Show Type:{{sh._embedded.show.type}}</p>
+                <!-- <a href="{{sh.url}}" class="btn btn-primary">Go</a> -->
+              </div>
+            </div>
+
+    
+
+      </div>
+    </div>
+
+  
+
+</ng-template>
