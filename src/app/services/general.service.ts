@@ -26,8 +26,12 @@ export class GeneralService {
 
   public getShowById(showId:number) {
     var url = this.urlBuilder('shows/'+showId);
-    // let headers = new Headers({ 'Content-Type': 'application/json' });
-    // return this.http.get(url, { headers: headers }).map((response: Response) => response.json());
+     return this.http.get(url).map((response: Response) => response.json());
+
+  }
+
+  public searchPeople(string:any){
+    var url = this.urlBuilder('search/people?q='+string);   
      return this.http.get(url).map((response: Response) => response.json());
 
   }

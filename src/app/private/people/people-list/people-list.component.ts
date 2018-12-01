@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-people-list',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeopleListComponent implements OnInit {
 
-  constructor() { }
+  filter = '';
+
+  peopleList:any=[];
+  p:number=1;
+
+  constructor(private generalService: GeneralService) { }
 
   ngOnInit() {
+  }
+
+  onModelChange(filter) {
+
+    console.log(filter)
+    this.generalService.searchPeople(filter).subscribe(data => {
+      console.log('data', data);
+      this.peopleList=data;
+
+    }, error => {
+      console.log('error', error)
+
+    });
   }
 
 }

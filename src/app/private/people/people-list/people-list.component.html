@@ -1,3 +1,34 @@
-<p>
-  people-list works!
-</p>
+<div class="input-group mt-1">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-search"></i></span>
+  </div>
+  <input class="form-control" type="text" name="search" placeholder="search show here..." [(ngModel)]="filter"
+    (ngModelChange)="onModelChange(filter)">
+
+</div>
+
+
+
+<pagination-controls *ngIf="peopleList.length>0" class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
+
+<div class="row text-center mt-5" *ngIf="peopleList.length>0">
+
+  <div class="col-md-2 mt-4 " *ngFor="let p of peopleList | paginate: { itemsPerPage: 12, currentPage: p }" routerLink="/home/people/detail/{{p.person.id}}"
+    style="cursor:pointer">
+
+    <div class="card">
+      <img class="card-img-top" *ngIf="p.person.image;else noImage" src="{{p.person.image.medium}}" alt="Card image cap">
+      <ng-template #noImage>
+        <img src="assets/images/inf.png" alt="image not found">
+      </ng-template>
+      <div class="card-body" style="height:100px !important;">
+        <p class="card-title">
+          <b>{{p.person.name}}</b>
+        </p>
+        <!-- <p class="card-text">Show Type:{{sh._embedded.show.type}}</p> -->
+        <!-- <a href="{{sh.url}}" class="btn btn-primary">Go</a> -->
+      </div>
+    </div>
+
+  </div>
+</div>
