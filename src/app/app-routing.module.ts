@@ -6,12 +6,15 @@ import { HomeComponent } from './private/home/home.component';
 import { ShowsComponent } from './private/shows/shows.component';
 import { ShowListComponent } from './private/shows/show-list/show-list.component';
 import { ShowDetailComponent } from './private/shows/show-detail/show-detail.component';
+import { ContactsComponent } from './public/contacts/contacts.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' }
   ,
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent }
+  ,
+  { path: 'contact', component: ContactsComponent },
 
   {
     path: 'home', component: HomeComponent,

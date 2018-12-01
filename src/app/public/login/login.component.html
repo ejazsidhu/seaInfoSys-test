@@ -18,25 +18,25 @@
 
             <div class="form-group">
               <label for="email" >Email:</label><br>
-              <input [formControl]="email" id="email" type="email" name="email" class="form-control" required>
+              <input formControlName="email" id="email" type="email" name="email" class="form-control" required>
 
-              <span *ngIf="email.invalid && (email.dirty || email.touched)" style="color:red">Enter a valid
+              <span *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" style="color:red">Enter a valid
                 email address</span>
 
             </div>
             <div class="form-group">
               <label for="password" >Password:</label><br>
-              <input type="password" name="password" id="password" class="form-control" [formControl]="password" required>
-              <span *ngIf="!password.valid && password.touched " style="color:red">Password
+              <input type="password" name="password" id="password" class="form-control" formControlName="password" required>
+              <span *ngIf="form.controls['password'].invalid && form.controls['password'].touched " style="color:red">Password
                 field can't empty.</span>
             </div>
             <div class="form-group text-center">
 
               <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
             </div>
-            <!-- <div id="register-link" class="text-right">
-              <a href="#" class="text-info">Register here</a>
-            </div> -->
+            <div id="register-link" class="text-right">
+              <a routerLink="/contact" class="text-info">Register here</a>
+            </div>
           </form>
         </div>
       </div>
