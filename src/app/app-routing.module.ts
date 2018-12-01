@@ -9,7 +9,9 @@ import { ShowDetailComponent } from './private/shows/show-detail/show-detail.com
 
 const routes: Routes = [
 
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  ,
+  { path: 'login', component: LoginComponent },
 
   {
     path: 'home', component: HomeComponent,

@@ -31,7 +31,7 @@
           <tr>
             <th>Schedule:</th>
             <td>Time:{{show.schedule.time}}</td>
-            <td *ngFor="let sch of show.schedule.days">{{sch}}</td>
+            <td *ngFor="let sch of show.schedule.days;let i=index"> ,{{sch}}</td>
           </tr>
           <tr>
             <th>Status</th>

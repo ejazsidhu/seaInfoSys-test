@@ -15,6 +15,7 @@ import { ContentComponent } from './private/layout/content/content.component';
 import { HomeComponent } from './private/home/home.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { HttpModule } from "@angular/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { HttpModule } from "@angular/http";
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
