@@ -21,18 +21,18 @@
               </div>
             </div>
             <div class="col-md-8">
-      
-              {{cleanParaghraf(show.summary)}}
-      
+
+              {{cleanParaghraph(show.summary)}}
+
             </div>
           </div>
-      
+
         </div>
         <div class="col-md-5" *ngIf="show.network">
           <div class="card" style="width: 27rem;">
             <div class="card-body">
               <h5 class="card-title">Show info</h5>
-      
+
               <table class="c-table">
                 <tr>
                   <th>Network:</th>
@@ -56,28 +56,56 @@
                   <th>Genres</th>
                   <td *ngFor="let g of show.genres">{{g}}</td>
                 </tr>
-      
+
               </table>
-      
+
             </div>
           </div>
-      
+
         </div>
       </div>
     </ng-template>
   </ngb-tab>
   <ngb-tab title="Episodes" (click)="getEpisdoes()">
-    
+
     <ng-template ngbTabContent>
-  
-    </ng-template>  
+      <table class="table" *ngIf="episodesList.length>0;else noEpisode">
+        <thead>
+          <tr>
+            <th>Sr.#</th>
+            <th>Name</th>
+            <th>Season</th>
+            <th>Image</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="cursor:pointer" *ngFor="let ep of episodesList | paginate: { itemsPerPage: 6, currentPage: p };let i=index">
+            <td>{{i+1}}</td>
+            <td>{{ep.name}}</td>
+            <td>{{ep.season}}</td>
+            <td>
+              <img src="{{ep.image.medium}}" alt="image not flound" width="40">
+              </td>
+            <td>{{ep.url}}</td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <div class="pull-right">
+          <pagination-controls class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
+
+      </div>
+
+      <ng-template #noEmpisode>
+        <p>No Episode Found</p>
+      </ng-template>
+
+    </ng-template>
   </ngb-tab>
   <ngb-tab title="Cast" (click)="getShowCast()">
     <ng-template ngbTabContent>
-     <p *ngIf="castList.length==0">No Cast List Available</p>
+      <p *ngIf="castList.length==0">No Cast List Available</p>
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
-
-
-
