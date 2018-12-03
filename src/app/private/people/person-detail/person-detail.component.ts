@@ -16,18 +16,15 @@ export class PersonDetailComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      console.log(params['id']);
       this.getPersonById(params['id']);
     })
   }
 
   getPersonById(personId) {
     this.generalService.getPersonById(personId).subscribe(data => {
-      console.log(data);
       this.person = data;
 
     }, error => {
-      console.log('error', error.message)
       this.message = error.message
     });
 

@@ -9,34 +9,27 @@ import { GeneralService } from 'src/app/services/general.service';
 export class ShowListComponent implements OnInit {
 
   showsList: any = [];
-  loading=false;
+  loading = false;
   p: number = 1;
-  filter='';
-  message='';
+  filter = '';
+  message = '';
 
   constructor(private generalService: GeneralService) { }
 
   ngOnInit() {
-    this.loading=true
+    this.loading = true
     this.getData();
   }
 
 
   getData() {
     this.generalService.getAllShows().subscribe(data => {
-
       this.showsList = data;
-      console.log(this.showsList[0]._embedded.show.image.medium)
-      this.loading=false;
+      this.loading = false;
 
-    }, error => { 
-      this.message=error.message;
-     })
+    }, error => {
+      this.message = error.message;
+    })
   }
-
-
-
-
-
 
 }

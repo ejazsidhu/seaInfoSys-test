@@ -19,15 +19,9 @@ export class PeopleListComponent implements OnInit {
   }
 
   onModelChange(filter) {
-
-    console.log(filter)
     this.generalService.searchPeople(filter).subscribe(data => {
-      console.log('data', data);
       this.peopleList=data;
-
     }, error => {
-      console.log('error', error)
-
     });
   }
 
