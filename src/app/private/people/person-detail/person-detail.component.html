@@ -5,8 +5,8 @@
       <img class="card-img-top" src="{{person.image.medium}}" alt="">
       <div class="card-body">
         <h4 class="card-title">Name:{{person.name}}</h4>
-        <p class="card-text">Country:{{person.country.name}}</p>
-        <p class="card-text">DOB:{{person.birthday}}</p>
+        <p class="card-text" *ngIf="person.country">Country:{{person.country.name}}</p>
+        <p class="card-text" *ngIf="person.birthday">DOB:{{person.birthday}}</p>
 
       </div>
     </div>
