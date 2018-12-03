@@ -86,14 +86,14 @@
             <td>{{ep.season}}</td>
             <td>
               <img src="{{ep.image.medium}}" alt="image not flound" width="40">
-              </td>
+            </td>
             <td>{{ep.url}}</td>
           </tr>
         </tbody>
-        
+
       </table>
       <div class="pull-right">
-          <pagination-controls class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
+        <pagination-controls class="text-center mt-1" (pageChange)="p = $event"></pagination-controls>
 
       </div>
 
@@ -104,8 +104,21 @@
     </ng-template>
   </ngb-tab>
   <ngb-tab title="Cast" (click)="getShowCast()">
-    <ng-template ngbTabContent>
+    <ng-template ngbTabContent class="text-center">
       <p *ngIf="castList.length==0">No Cast List Available</p>
+      <div class="row " *ngIf="castList.length>0">
+        <div class="col-md-3 mt-3" *ngFor="let cast of castList">
+          <div class="card text-left">
+            <img class="card-img-top" src="{{cast.person.image.medium}}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{cast.person.name}}</h4>
+              <p class="card-text">as <b> {{cast.character.name}}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
