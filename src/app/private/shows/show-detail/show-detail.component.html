@@ -66,7 +66,7 @@
       </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Episodes" (click)="getEpisdoes()">
+  <ngb-tab title="Episodes" >
 
     <ng-template ngbTabContent>
       <table class="table" *ngIf="episodesList.length>0;else noEpisode">
@@ -103,7 +103,7 @@
 
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Cast" (click)="getShowCast()">
+  <ngb-tab title="Cast" >
     <ng-template ngbTabContent class="text-center">
       <p *ngIf="castList.length==0">No Cast List Available</p>
       <div class="row " *ngIf="castList.length>0">
