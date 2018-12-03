@@ -10,10 +10,11 @@ import { ContactsComponent } from './public/contacts/contacts.component';
 import { PeopleComponent } from './private/people/people.component';
 import { PeopleListComponent } from './private/people/people-list/people-list.component';
 import { PersonDetailComponent } from './private/people/person-detail/person-detail.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
   ,
   { path: 'login', component: LoginComponent }
   ,
@@ -21,6 +22,7 @@ const routes: Routes = [
 
   {
     path: 'home', component: HomeComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '', component: ShowsComponent,

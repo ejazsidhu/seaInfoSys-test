@@ -21,6 +21,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PeopleComponent } from './private/people/people.component';
 import { PeopleListComponent } from './private/people/people-list/people-list.component';
 import { PersonDetailComponent } from './private/people/person-detail/person-detail.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { PersonDetailComponent } from './private/people/person-detail/person-det
     NgxPaginationModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

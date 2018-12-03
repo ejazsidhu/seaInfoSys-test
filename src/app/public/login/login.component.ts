@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    localStorage.clear();
     this.form = this.fb.group({
       email: ['mail@infoSys.com', Validators.compose([Validators.required, EmailValidator.validate, Validators.minLength(4)])],
       password: ['pakistan', Validators.compose([Validators.required])],
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
 
     if (form.valid) {
       if (form.value.email == 'mail@infoSys.com' && form.value.password == 'pakistan') {
+        localStorage.setItem('user','true');
         this.router.navigate(['/home']);
       }
       else {
